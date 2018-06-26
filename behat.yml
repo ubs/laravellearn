@@ -1,0 +1,20 @@
+default:
+    #autoload:
+        #See https://stackoverflow.com/questions/27905633/behat-3-0-features-folder-path
+        #'': "%paths.base%/tests/features/bootstrap"
+    suites:
+        default:
+            paths: [ "%paths.base%/tests/features" ]
+            contexts: [ Tests\Features\Bootstrap\FeatureContext ]
+
+    extensions:
+        Laracasts\Behat\ServiceContainer\BehatExtension: ~
+            # env_path: .env.behat
+        
+        Behat\MinkExtension\ServiceContainer\MinkExtension:
+            default_session: laravel
+            base_url: http://localhost:8000/
+            laravel: ~
+
+    formatters:
+        pretty: true

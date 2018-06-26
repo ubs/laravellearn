@@ -1,0 +1,14 @@
+#PhpSpec suites - note that the default (no namespace suite) should always be last to avoid nasty surprises
+suites:
+    app_suite:
+        namespace: App
+        spec_path: tests
+        src_path:  app
+        #psr4_prefix: App
+        #spec_prefix: ""
+
+#Pretty Format
+formatter.name: pretty
+
+#Prevent Code Generation
+code_generation: false
