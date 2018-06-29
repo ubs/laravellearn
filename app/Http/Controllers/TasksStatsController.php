@@ -15,7 +15,7 @@ class TasksStatsController extends Controller
     public function index()
     {
         /*********************************
-         *method moved to model #SOLID
+         *method moved to model #SOLID Principle#
         $taskArchives = Task::selectRaw(
             'year(created_at) as year_created,
             month(created_at) as month_number_created, 

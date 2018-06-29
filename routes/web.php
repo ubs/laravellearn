@@ -78,6 +78,6 @@ Route::post('settings', 'AppsettingsController@store');
 Route::get('settings/create', 'AppsettingsController@create');
 Route::get('settings/{setting}', 'AppsettingsController@show')->name('settings.show');
 
-//https://laracasts.com/series/laravel-from-scratch-2017/episodes/20?autoplay=true
+//https://laracasts.com/series/laravel-from-scratch-2017/episodes/21?autoplay=true
 //10 Minutes
 

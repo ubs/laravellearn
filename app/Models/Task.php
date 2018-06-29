@@ -86,8 +86,20 @@ class Task extends Model
      * Returns an Eloquent Builder holding tasks filtered by month, year, etc.
      * @param Builder $query Builder that can be extended with <br/>
      * other Eloquent commands (e.g. where, orderBy, count, etc.)
+     * @param Array $filters array of filters to filter tasks by
      */
-    public function scopeFilterTasks($query) {
-        return null;
+    public function scopeFilterTasks($query, $filters) {
+        if (is_null($filters)) {
+            return self::getTaskArchives();
+        }
+        else {           
+            if ($month = $filters['month']) {
+                $query->whereMonth('created_at', Carbon::parse($month)->month);
+            }
+            
+            if ($year = $filters['year']) {
+                $query->whereYear('created_at', Carbon::parse($year)->year);
+            }
+        }
     }
 }

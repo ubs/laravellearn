@@ -26,7 +26,7 @@ class TasksController extends Controller
         //request()->request->add(['task_desc' => request('description')]); //To provide the right DB field else, fails
         //$newTask = auth()->user()->makeTask(new Task( request(['title', 'task_desc']) ));
         
-        //OR explicitly named in the passed array like this
+        //OR field explicitly named in the passed array like this
         //$newTask = auth()->user()->makeTask(new Task( ['title' => request('title'), 'task_desc' => request('description')] )); 
 
         $success = $newTask instanceof Task;
