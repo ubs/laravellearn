@@ -67,6 +67,7 @@ Route::get('tasks/{id}', function ($id){
 })->name('tasks.show');
 
 Route::get('tasks-stats', 'TasksStatsController@index');
+Route::get('tasksfiltered', 'TasksFilteredController@index');
 
 
 Route::get('keys', 'KeysController@index');

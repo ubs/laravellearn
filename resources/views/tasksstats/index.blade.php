@@ -20,7 +20,11 @@
 		
 		<ul>
 		@foreach($taskArchives as $archive)
-		<li>{{ $archive->month_name_created }} [{{ $archive->total_per_month }} tasks]</li>
+		<li>
+			<a href="{{ url('tasksfiltered') }}/?month={{ $archive->month_name_created }}&year={{ $archive->year_created }}" title="View tasks for {{ $archive->month_name_created }}">
+			{{ $archive->month_name_created }} {{ $archive->year_created }} [{{ $archive->total_per_month }} tasks]
+			</a>
+		</li>
 		@endforeach
 		</ul>
 

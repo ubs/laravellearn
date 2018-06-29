@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Task extends Model
 {
@@ -58,5 +60,34 @@ class Task extends Model
             ->groupBy('year_created', 'month_number_created', 'month_name_created')
             ->orderBy('month_number_created', 'DESC')
             ->get();
+    }
+    
+    public static function getTasks($month=null, $year=null){
+        if (is_null($month) && is_null($year)) {
+            return self::getTaskArchives();
+        }
+        else {
+            $tasks = self::latest();
+            
+            if ($month) {
+                $tasks->whereMonth('created_at', Carbon::parse($month)->month);
+            }
+            
+            if ($year) {
+                $tasks->whereYear('created_at', Carbon::parse($year)->year);
+            }
+            
+            return $tasks->get();
+        }
+    }
+    
+    //TODO using query scopes to do it
+    /**
+     * Returns an Eloquent Builder holding tasks filtered by month, year, etc.
+     * @param Builder $query Builder that can be extended with <br/>
+     * other Eloquent commands (e.g. where, orderBy, count, etc.)
+     */
+    public function scopeFilterTasks($query) {
+        return null;
     }
 }
