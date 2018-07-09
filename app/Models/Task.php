@@ -81,7 +81,6 @@ class Task extends Model
         }
     }
     
-    //TODO using query scopes to do it
     /**
      * Returns an Eloquent Builder holding tasks filtered by month, year, etc.
      * @param Builder $query Builder that can be extended with <br/>

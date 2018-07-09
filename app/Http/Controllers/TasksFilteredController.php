@@ -19,8 +19,8 @@ class TasksFilteredController extends Controller
         
         $tasks = Task::getTasks($month, $year); //Getting directly from Task Model
         
-        //$tasks = Task::latest()->filterTasks(request(['month', 'year']))->get();  //Getting via Task Model Scope Query
-        //$tasks = Task::latest()->filterTasks(compact('month', 'year'))->get();  //Getting via Task Model Scope Query
+        //$tasks = Task::latest()->filterTasks(request(['month', 'year']))->get();  //Getting via Task Model Scope Query #1
+        //$tasks = Task::latest()->filterTasks(compact('month', 'year'))->get();  //Getting via Task Model Scope Query #2
         
         return view('tasks.tasksfiltered', compact('month', 'year', 'tasks'));
     }

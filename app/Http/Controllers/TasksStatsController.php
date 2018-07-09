@@ -25,8 +25,13 @@ class TasksStatsController extends Controller
             ->orderBy('month_number_created', 'DESC')
             ->get();
          *********************************/ 
-        $taskArchives = Task::getTaskArchives();
-        return view('tasksstats.index', compact('taskArchives'));
+        
+        //Using regular approach (i.e. get view data, pass it to the view)
+        //$taskArchives = Task::getTaskArchives();
+        //return view('tasksstats.index', compact('taskArchives'));
+        
+        //Using View Composer (i.e. view data is injected by a service when the view is rendered)
+        return view('tasksstats.index');
     }
 
     /**
